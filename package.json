@@ -11,7 +11,15 @@
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.74.0"
+    "react-native": "0.74.0",
+    "react-native-calendars": "^1.1307.0",
+    "react-native-gesture-handler": "^2.21.2",
+    "react-native-reanimated": "^3.16.3",
+    "react-native-svg": "^15.10.1",
+    "react-native-svg-circular-progress": "^1.0.4",
+    "react-native-timeline-flatlist": "^0.8.0",
+    "react-native-vector-icons": "^10.2.0",
+    "react-navigation": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

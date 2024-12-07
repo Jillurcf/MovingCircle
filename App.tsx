@@ -1,118 +1,122 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { Calendar } from 'react-native-calendars';
+import { CircularProgress } from 'react-native-svg-circular-progress';
+import Icon from 'react-native-vector-icons/Ionicons';
+import OvulationCircle from './src/screen/OvulationCircle';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const { width, height } = Dimensions.get('window');
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View>
+      <OvulationCircle />
     </View>
+    // <View style={styles.container}>
+    //   {/* Header Section */}
+    //   <View style={styles.header}>
+    //     <Text style={styles.title}>The Eve Cycle</Text>
+    //     <Icon name="notifications-outline" size={24} color="#fff" />
+    //   </View>
+
+    //   {/* Circular Progress Indicator */}
+    //   <View style={styles.circularProgressContainer}>
+    //     <CircularProgress
+    //       size={200}
+    //       width={10}
+    //       backgroundWidth={5}
+    //       fill={60} // Example: 60% of the cycle completed
+    //       tintColor="#F15BB5"
+    //       backgroundColor="#D1D1D1"
+    //       lineCap="round"
+    //     >
+    //       {() => (
+    //         <View style={styles.ovulationInfo}>
+    //           <Text style={styles.dayText}>2nd</Text>
+    //           <Text style={styles.infoText}>High chance of getting pregnant</Text>
+    //         </View>
+    //       )}
+    //     </CircularProgress>
+    //   </View>
+
+    //   {/* Action Button */}
+    //   <TouchableOpacity style={styles.logButton}>
+    //     <Text style={styles.logButtonText}>Log Period</Text>
+    //   </TouchableOpacity>
+
+    //   {/* Calendar Section */}
+    //   <View style={styles.calendarContainer}>
+    //     <Calendar
+    //       markedDates={{
+    //         '2024-12-07': { marked: true, dotColor: '#F15BB5' },
+    //         '2024-12-08': { marked: true, dotColor: '#F15BB5' },
+    //         '2024-12-09': { marked: true, dotColor: '#F15BB5' },
+    //         '2024-12-10': { marked: true, dotColor: '#FFD166' },
+    //       }}
+    //       theme={{
+    //         todayTextColor: '#F15BB5',
+    //         selectedDayBackgroundColor: '#FFD166',
+    //       }}
+    //     />
+    //   </View>
+    // </View>
   );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+};
 
 export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#1C3D58',
+    padding: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  title: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  circularProgressContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  ovulationInfo: {
+    alignItems: 'center',
+  },
+  dayText: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  infoText: {
+    fontSize: 14,
+    color: '#fff',
+    textAlign: 'center',
+    marginTop: 5,
+  },
+  logButton: {
+    backgroundColor: '#FFD166',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  logButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1C3D58',
+  },
+  calendarContainer: {
+    marginTop: 10,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 10,
+  },
+});
