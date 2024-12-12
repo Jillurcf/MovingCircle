@@ -4,14 +4,21 @@ import { Calendar } from 'react-native-calendars';
 import { CircularProgress } from 'react-native-svg-circular-progress';
 import Icon from 'react-native-vector-icons/Ionicons';
 import OvulationCircle from './src/screen/OvulationCircle';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import DayPicker from './src/screen/CustomCalender';
 
 const { width, height } = Dimensions.get('window');
 
 const App = () => {
   return (
-    <View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={{flex: 1}}>
       <OvulationCircle />
+      {/* <DayPicker /> */}
     </View>
+    </GestureHandlerRootView>
+    
+     
     // <View style={styles.container}>
     //   {/* Header Section */}
     //   <View style={styles.header}>
@@ -65,58 +72,3 @@ const App = () => {
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#1C3D58',
-    padding: 20,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  title: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  circularProgressContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  ovulationInfo: {
-    alignItems: 'center',
-  },
-  dayText: {
-    fontSize: 40,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  infoText: {
-    fontSize: 14,
-    color: '#fff',
-    textAlign: 'center',
-    marginTop: 5,
-  },
-  logButton: {
-    backgroundColor: '#FFD166',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  logButtonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#1C3D58',
-  },
-  calendarContainer: {
-    marginTop: 10,
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 10,
-  },
-});
